@@ -1,0 +1,43 @@
++ TO create a new app
+
+# python3 manage.py startapp app_name
+
++ After creating new_app add its entry in project_name/setting.py
+
+INSTALLED_APPS = [
+  'app_name'
+]
+
++ after that added the path for the new app in urls.py in project_name/urls
+path('newyear/', include("newyear.urls"))
+
++ now create a new file in app_name/urls.py
+and from django.urls import path and
+from . import views
+
+urlpatterns = [
+ path("", views.index, name='index')
+]
+
++ next go to views.py of that specific app and create functions
+
++ for html code you can seperate it for each app inside a project
+
++ to add html files create a directory templates/app_name inside app_name directory
+and then inside that create a new html file
+
+++ Note:
++ if you want to use a variable inside html use {{ variable_name }}
++ if you want to use logic inside html use {% logic(conditions etc) %}
+
++ django has a way of dealing with static files like css
+for this create a directory static/app_name in app_name directory
+
++ to use css
+i. create a styles.css inside app_name/static/app_name/styles.css
+ii. in the html page at top add {% load static %}
+iii. in
+<head>
+<link rel="stylesheet" href="{% static 'app_name/styles.css'%}">
+</head >
+reload the server

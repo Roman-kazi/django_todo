@@ -1,0 +1,22 @@
+1. django-admin startproject <project name>
+2. python manage.py runserver
+3. python manage.py startapp <app name>
+// a django proejct can have multiple app within it
+// after 3 step we need to install the new app into our project
+// to do that go to settings.py then INSTALLED_APPS =[
+'<app name>'
+]
+4. View.py // this file contains code for what users will see
+Note: often times we will have urls.py for each app in the project
+urls.py contains what urls are available to that app
+
+5. Create urls.py in <app name> directory
+6. in urls.py there is a variable urlpatterns that contain all the calide route the app can have
+7. Now go to projects urls.py and add urlpatterns for the app
+include("app_name.urls") tells django to look at app_name urls file for valid urlpatterns for the app
+
+8. You can render html pages return render(request, app_name/html_file_name)
+9. the html files will be placed in templates folder inside the app_name directory
+django best practice is app_name/templates/app_name/html_file_name
+10. render has a third argument known as context here you can pass anything to your html page
+(like all the varilables that we want our template to have access to) 

@@ -41,3 +41,42 @@ iii. in
 <link rel="stylesheet" href="{% static 'app_name/styles.css'%}">
 </head >
 reload the server
+
+++++++++++
++ django provides us with html inheritence
+for that create a layout.html (base class)
+in layout.html
+create the necessary html tags then added
+
+{% block body %}
+{% endblock %}
+
++ Next inside child.html
+
+# at the top
+{% extends "tasks/layout.html" %}
+{% block body %}
+# html code specific to child.html
+{% endblock %}
+
++++++++++++
+Note: + the name given in the path("xyz", views.xyz, name="xyz")
+is used while defining href
+eg: <a href="{% url 'xyz' %}"> Goes to xyz </a>
+this is another feature of django that enables good design
+
++but somtimes this could cause namespace collisions
++ to avoid namespace collisions
+- add a new variable inside urls.py called app_name = "app_name"
+- now while referencing the name of url do as follows:
+  <a href="{% url 'app_name:xyz' %}"> Goes to xyz </a>
+
++++++++++++
++ CSRF
++ django implements various middleware by default that helps in
+  maintaining secuitry
+  one of which is CSRF (crosssite script request forgery) which is a
+  vulerability in order to this we can use {% csrf_token %} in our forms
+
++++++++++
++django has its own way of creating forms
